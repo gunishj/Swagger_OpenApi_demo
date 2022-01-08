@@ -1,5 +1,5 @@
-## getting started with spring boot in less than 10 mins
-Design a Hello world spring boot application
+## getting started with Open api Swagger in spring boot
+Design a sample rest application
 
 ## Dependencies
 spring web
@@ -19,18 +19,23 @@ once project has been imported it will look something like this.
 
 5. Now run the DemoApplication and goto localhost:8080 it should give some error as we haven't define the controller 
    yet.
-6. add a new test class CheckHTTPResponse present in test folder to assert test now if we try running this 
-CheckHTTPResponse it should fail as we have still not added the controller. 
+6. Now add 2 new packages model and controllers 
+7. Define an employee class in the model package with id, name ,salary
+8. Define EmployeeController in Controller package to define end points to get the employee list and delete/add employee
+9. Run the application and open swagger link :  localhost:8080/swagger-ui.html
+you will be able to see your api end point like given below
+![Alt text](images/swager_api.JPG?raw=true "Title")
+here you can open each api
+![Alt text](images/get.JPG?raw=true "Title")
+try to execute directly from here
+![Alt text](images/get_try.JPG?raw=true "Title")
+you can access api docs as well at the given link : http://localhost:8080/v3/api-docs
+10. Now if you want to provide your custom title in swagger api then you need to pass the annotations in spring 
+    application  : ``@OpenAPIDefinition(info = @Info(title = "Employees API", version = "1.0", description = "Employees Information"))
+    ``
+    ![Alt text](images/swagger_api_title.JPG?raw=true "Title")
 
-7. Now we will create a new HelloWorldController class , where we will define the RestController and default 
-RequestMapping through annotations and now if you will run the test class it will succeed.
+you also define custom url by adding ``springdoc.api-docs.path = /custompathname`` in application.properties
 
-8. we can also check in the localhost:8080 that it prints the hello message
-
-![Alt text](images/Hello.JPG?raw=true "Title")
-9. you can also give a goodbye message at some other goodbye endpoint as we have defined in this code.
-
-![Alt text](images/Goodbye.JPG?raw=true "Title")
-
-I hope this basic application help you get started with spring framework. Will come back with more such small 
+I hope this basic application help you get started with OpenApi spring framework. Will come back with more such small 
 implementations.
